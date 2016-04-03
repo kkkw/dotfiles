@@ -1,0 +1,52 @@
+[core]
+    excludesfile = ~/.gitignore
+    #atutocrlf = input
+    editor = vim
+    whitespace = cr-at-eol
+    #quotepath = false
+
+[merge]
+    tool = vimdiff
+    #ff = false
+
+[diff]
+    tool = vimdiff
+
+#[branch]
+#    autosetuprebase = always
+
+#[pull]
+#    rebase = true
+
+#[pager]
+#    log = diff-highlight
+#    show = diff-highlight
+#    diff = diff-highlight
+
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	grep = auto
+	interactive = auto
+
+[alias]
+    br = branch
+    co = checkout
+    st = status
+    ci = commit
+    cam = commit --amend
+    log-one = log --oneline
+    log-full = log --oneline --decorate --graph
+    log-grep = log -S --pretty=oneline --name-only
+    show-branch-master = show-branch --merge-base master HEAD
+    delete-merged = !git checkout master && git branch --merged | grep -v 'master' | xargs git branch -d
+    delete-gone = !git checkout master && git branch -v |  grep gone | awk '{print $1}' | cat | xargs git branch -D
+    spr = pull-request
+    push-f = push --force-with-lease
+
+[user]
+	name = kkkw
+
+[include]
+  path = .gitconfig.local
