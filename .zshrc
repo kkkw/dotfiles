@@ -52,6 +52,7 @@ path=(
   $HOME/workspace/go/bin(N-/)
   /usr/local/opt/mysql-client/bin(N-/)
   /usr/local/mysql/bin(N-/)
+  /snap/bin(N-/)
   $path
 )
 
