@@ -53,6 +53,7 @@ path=(
   /usr/local/opt/mysql-client/bin(N-/)
   /usr/local/mysql/bin(N-/)
   /snap/bin(N-/)
+  $HOME/.npm-global/bin(N-/)
   $path
 )
 
