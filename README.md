@@ -17,7 +17,10 @@ $ sudo apt install rcm
 
 ```sh
 //初回はRCRCを指定する必要がある
-env RCRC=$HOME/dotfiles/rcrc rcup
+$ env RCRC=$HOME/dotfiles/rcrc rcup
+
+//ホスト名を指定して実行する
+$ rcup -B osx
 ```
 
 ## mkrc
