@@ -36,3 +36,14 @@ $ mkrc -d dotfiles-local .zshrc.local
 //ディレクトリごと指定する
 $ mkrc -d dotfiles-local -S .aws
 ```
+
+## rcdn
+
+mkrcの逆
+dotfiles内でコマンドを打つ
+dotfiles内のファイルは消えないが、シンボリックリンクは削除される
+
+```sh
+$ cd ~/dotfiles
+$ rcdn .zshrc
+```
