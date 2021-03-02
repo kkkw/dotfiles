@@ -17,6 +17,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 # Customize to your needs...
+if [[ -s "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 #alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
@@ -44,6 +47,8 @@ function git-root() {
 }
 
 path=(
+  /opt/homebrew/bin(N-/)
+  $HOME/Library/Python/3.9/bin(N-/)
   $HOME/.nodebrew/current/bin(N-/)
   $HOME/.composer/vendor/bin(N-/)
   $HOME/.phpbrew/bin(N-/)
