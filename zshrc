@@ -67,6 +67,38 @@ path=(
 [[ -s $HOME/.rbenv/shims ]] && eval "$(rbenv init -)"
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 which direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
+which jump> /dev/null 2>&1 && eval "$(jump shell)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export NNN_PLUG='o:fzopen;m:nmount;x:_chmod +x $nnn;j:jump'
+export NNN_BMS='4:/media/yuya/volume4000;c:/media/yuya/volume4000/comic;2:/media/yuya/volume2000-1;b:~/workspace/beast;a:~/workspace/aladdin;h:~/workspace/hibiki-bot'
+export NNN_FIFO=/tmp/nnn.fifo
+n()
+{
+    export NNN_TMPFILE=${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd
+
+    nnn "$@"
+
+    if [ -f $NNN_TMPFILE ]; then
+            . $NNN_TMPFILE
+            rm -f $NNN_TMPFILE > /dev/null
+    fi
+}
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/yuya/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/yuya/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/yuya/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/yuya/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
