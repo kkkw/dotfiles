@@ -69,6 +69,7 @@ path=(
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 which direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 which jump> /dev/null 2>&1 && eval "$(jump shell)"
+which gh> /dev/null 2>&1 && eval "$(gh completion -s zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
