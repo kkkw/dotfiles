@@ -55,6 +55,7 @@ path=(
   $HOME/.rbenv/shims(N-/)
   $HOME/.goenv/shims(N-/)
   $HOME/workspace/go/bin(N-/)
+  $HOME/go/bin(N-/)
   /usr/local/opt/mysql-client/bin(N-/)
   /usr/local/mysql/bin(N-/)
   /snap/bin(N-/)
