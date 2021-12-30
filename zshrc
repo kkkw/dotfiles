@@ -16,10 +16,15 @@ fi
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-# Customize to your needs...
-if [[ -s "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
-  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+
+# fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+# autoload -U compinit
+# compinit -u
+
+# # Customize to your needs...
+# if [[ -s "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+#   source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# fi
 
 #alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
@@ -69,7 +74,6 @@ path=(
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 which direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 which jump> /dev/null 2>&1 && eval "$(jump shell)"
-which gh> /dev/null 2>&1 && eval "$(gh completion -s zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

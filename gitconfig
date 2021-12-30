@@ -33,6 +33,7 @@
 [alias]
     br = branch
     co = checkout
+    sw = switch
     st = status
     ci = commit
     cam = commit --amend
