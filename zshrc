@@ -53,6 +53,7 @@ function git-root() {
 
 path=(
   /opt/homebrew/bin(N-/)
+  /opt/homebrew/sbin(N-/)
   $HOME/Library/Python/3.9/bin(N-/)
   $HOME/.nodebrew/current/bin(N-/)
   $HOME/.composer/vendor/bin(N-/)

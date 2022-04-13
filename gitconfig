@@ -41,8 +41,10 @@
     log-full = log --oneline --decorate --graph
     log-grep = log -S --pretty=oneline --name-only
     show-branch-master = show-branch --merge-base master HEAD
-    delete-merged = !git checkout master && git branch --merged | grep -v 'master' | xargs git branch -d
-    delete-gone = !git checkout master && git branch -v |  grep gone | awk '{print $1}' | cat | xargs git branch -D
+    delete-merged-master = !git switch master && git pull --rebase --prune origin master && git branch --merged | grep -v 'master' | xargs git branch -d
+    delete-gone-master = !git switch master && git pull --rebase --prune origin master && git branch -v |  grep gone | awk '{print $1}' | cat | xargs git branch -D
+    delete-merged = !git switch main && git pull --rebase --prune origin main && git branch --merged | grep -v 'main' | xargs git branch -d
+    delete-gone = !git switch main && git pull --rebase --prune origin main && git branch -v |  grep gone | awk '{print $1}' | cat | xargs git branch -D
     spr = pull-request
     push-f = push --force-with-lease
 
@@ -51,3 +53,5 @@
 
 [include]
   path = .gitconfig.local
+[init]
+	defaultBranch = main
