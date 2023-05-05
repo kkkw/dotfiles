@@ -1,52 +1,41 @@
+# dotfiles
 
-## install rcm
+[chezmoi](https://www.chezmoi.io/)を使ってdotfileを管理している
 
-### mac
+## 新規でセットアップ
 
 ```sh
-$ brew install rcm
+brew install chezmoi
+chezmoi init --ssh --apply kkkw
 ```
 
-### ubuntu
+## コマンド
 
 ```sh
-$ sudo apt install rcm
-```
-
-## rcup
-
-```sh
-//初回はRCRCを指定する必要がある
-$ env RCRC=$HOME/dotfiles/rcrc rcup
-
-//ホスト名を指定して実行する
-$ rcup -B osx
-```
-
-## mkrc
-
-dotfiles配下で管理していないファイルを  
-mkrcを使ってdotfilesに移動し、  
-シンボリックリンクに置き換えることをインストールと表現している
-
-```sh
-//ホスト名を指定してインストールする
-$ mkrc -B osx .config/karabiner/karabiner.json
-
-//インストール先を指定する
-$ mkrc -d dotfiles-local .zshrc.local
-
-//ディレクトリごと指定する
-$ mkrc -d dotfiles-local -S .aws
-```
-
-## rcdn
-
-mkrcの逆
-dotfiles内でコマンドを打つ
-dotfiles内のファイルは消えないが、シンボリックリンクは削除される
-
-```sh
-$ cd ~/dotfiles
-$ rcdn .zshrc
+# 管理対象の一覧
+chezmoi managed
+# 既存のファイルをchezmoi管理にする
+chezmoi add ~/.zshrc
+# 既存のファイルをテンプレートとして追加する
+chezmoi add --template ~/.zshrc
+# すでに管理下に置かれているファイルをテンプレートとして扱うよう変更する
+chezmoi chattr +template ~/.zshrc
+# 編集
+chezmoi edit ~/.zshrc
+# 適用(ドライラン)
+chezmoi apply --dry-run --verbose
+# 適用
+chezmoi apply
+# ファイル指定で適用
+chezmoi apply ~/.zshrc
+# リポジトリに移動
+chezmoi cd
+# templateで使える変数の確認
+chezmoi data
+# gitリポジトリの(他マシンでの)変更を取り込む
+chezmoi update
+# templateのテスト
+cat foo.tmpl | chezmoi execute-template
+# templateのテスト2
+chezmoi cat ~/foo.yml
 ```

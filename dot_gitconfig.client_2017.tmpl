@@ -1,0 +1,5 @@
+[url "https://{{ (bitwardenFields "item" "client-2017").github_token.value | trim }}:x-oauth-basic@github.com/"]
+  insteadOf = https://github.com/
+
+[user]
+    email = {{ (bitwardenFields "item" "client-2017").email.value | trim }}

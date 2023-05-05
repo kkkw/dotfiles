@@ -69,7 +69,6 @@ path=(
   $path
 )
 
-[[ -s $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
 [[ -s $HOME/.phpbrew/bashrc ]] && source  $HOME/.phpbrew/bashrc
 [[ -s $HOME/.rbenv/shims ]] && eval "$(rbenv init -)"
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
@@ -97,6 +96,5 @@ n()
 [[ -s /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]] && source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 [[ -s /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc ]] && source  /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+export HOMEBREW_GITHUB_API_TOKEN={{ (bitwarden "item" "HOMEBREW_GITHUB_API_TOKEN").notes | trim }}
+

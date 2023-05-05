@@ -48,10 +48,12 @@
     spr = pull-request
     push-f = push --force-with-lease
 
-[user]
-	name = kkkw
-
-[include]
-  path = .gitconfig.local
 [init]
 	defaultBranch = main
+
+[user]
+	name = kkkw
+    email = kikukawa.the.3rd@gmail.com
+
+[includeIf "gitdir:~/workspace/{{ (bitwardenFields "item" "client-2017").full_name.value | trim }}/"]
+  path = .gitconfig.client_2017
