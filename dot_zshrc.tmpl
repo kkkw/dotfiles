@@ -56,6 +56,7 @@ path=(
   /opt/homebrew/sbin(N-/)
   $HOME/Library/Python/3.9/bin(N-/)
   $HOME/.nodebrew/current/bin(N-/)
+  $HOME/.nodenv/bin(N-/)
   $HOME/.composer/vendor/bin(N-/)
   $HOME/.phpbrew/bin(N-/)
   $HOME/.rbenv/shims(N-/)
@@ -74,6 +75,8 @@ path=(
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 which direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 which jump> /dev/null 2>&1 && eval "$(jump shell)"
+which goenv > /dev/null 2>&1 && eval "$(goenv init -)"
+which nodenv > /dev/null 2>&1 && eval "$(nodenv init -)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
