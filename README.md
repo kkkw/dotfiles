@@ -4,9 +4,20 @@
 
 ## 新規でセットアップ
 
+### mac
+
 ```sh
 brew install chezmoi
 chezmoi init --ssh --apply kkkw
+ln -s ~/.local/share/chezmoi ~/workspace/dotfiles
+```
+
+### ubuntu
+
+```sh
+sudo snap install chezmoi --classic
+chezmoi init --ssh --apply kkkw
+ln -s ~/.local/share/chezmoi ~/workspace/dotfiles
 ```
 
 ## コマンド
