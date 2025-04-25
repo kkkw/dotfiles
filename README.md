@@ -2,6 +2,22 @@
 
 [chezmoi](https://www.chezmoi.io/)を使ってdotfileを管理している
 
+## 事前順部
+
+templateの中でbitwardenから値を取ってくるのでbitwarden-cliを使えるようにしておく
+
+### mac
+
+```sh
+brew install bitwarden-cli
+```
+
+### ubuntu
+
+```sh
+sudo snap install bw
+```
+
 ## 新規でセットアップ
 
 ### mac

@@ -5,6 +5,20 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export ZIM_HOME=$HOME/.zim
+
+# 非同期読み込みのためにzsh-deferを初期化
+source ${ZIM_HOME}/modules/zsh-defer/zsh-defer.plugin.zsh
+
+# ZIM
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  # 静的初期化スクリプトが存在しないか古い場合は更新
+  zsh-defer source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+source ${ZIM_HOME}/init.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
@@ -43,9 +57,6 @@ path=(
 which direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 which jump> /dev/null 2>&1 && eval "$(jump shell)"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 export NNN_PLUG='o:fzopen;m:nmount;x:_chmod +x $nnn;j:jump'
 export NNN_BMS='4:/media/yuya/volume4000;c:/media/yuya/volume4000/comic;2:/media/yuya/volume2000-1;b:~/workspace/beast;a:~/workspace/aladdin;h:~/workspace/hibiki-bot'
 export NNN_FIFO=/tmp/nnn.fifo
@@ -65,5 +76,3 @@ n()
 [[ -s /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc ]] && source  /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
 export HOMEBREW_GITHUB_API_TOKEN={{ (bitwarden "item" "HOMEBREW_GITHUB_API_TOKEN").notes | trim }}
-
-export JIRA_API_TOKEN={{ (bitwardenFields "item" "jira").token.value | trim }}
