@@ -47,6 +47,8 @@
     delete-gone = !git switch main && git pull --rebase --prune origin main && git branch -v |  grep gone | awk '{print $1}' | cat | xargs git branch -D
     spr = pull-request
     push-f = push --force-with-lease
+    pl-master = pull --rebase origin master
+    pl = pull --rebase origin main
 
 [init]
 	defaultBranch = main

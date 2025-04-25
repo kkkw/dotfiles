@@ -5,26 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-# fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-# autoload -U compinit
-# compinit -u
-
-# # Customize to your needs...
-# if [[ -s "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
-#   source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# fi
 
 #alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
@@ -55,29 +35,13 @@ path=(
   /opt/homebrew/bin(N-/)
   /opt/homebrew/sbin(N-/)
   $HOME/Library/Python/3.9/bin(N-/)
-  $HOME/.nodebrew/current/bin(N-/)
-  $HOME/.nodenv/bin(N-/)
-  $HOME/.composer/vendor/bin(N-/)
-  $HOME/.phpbrew/bin(N-/)
-  $HOME/.rbenv/shims(N-/)
-  $HOME/.goenv/shims(N-/)
-  $HOME/workspace/go/bin(N-/)
-  $HOME/go/bin(N-/)
   $HOME/bin(N-/)
-  /usr/local/opt/mysql-client/bin(N-/)
-  /usr/local/mysql/bin(N-/)
   /snap/bin(N-/)
-  $HOME/.npm-global/bin(N-/)
   $path
 )
 
-[[ -s $HOME/.phpbrew/bashrc ]] && source  $HOME/.phpbrew/bashrc
-[[ -s $HOME/.rbenv/shims ]] && eval "$(rbenv init -)"
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 which direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 which jump> /dev/null 2>&1 && eval "$(jump shell)"
-which goenv > /dev/null 2>&1 && eval "$(goenv init -)"
-which nodenv > /dev/null 2>&1 && eval "$(nodenv init -)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -102,3 +66,4 @@ n()
 
 export HOMEBREW_GITHUB_API_TOKEN={{ (bitwarden "item" "HOMEBREW_GITHUB_API_TOKEN").notes | trim }}
 
+export JIRA_API_TOKEN={{ (bitwardenFields "item" "jira").token.value | trim }}
