@@ -1,0 +1,18 @@
+# ファイル操作
+alias rmrf='rm -rf'
+alias ls='ls -lart --color=auto'
+
+# ディレクトリナビゲーション
+alias r='cd ~/repos'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# 開発環境
+alias c='cursor .'
+alias e='exit'
+
+# Git操作
+alias g='git'
+
+alias czm='chezmoi'

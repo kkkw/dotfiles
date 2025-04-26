@@ -76,3 +76,6 @@ n()
 [[ -s /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc ]] && source  /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
 export HOMEBREW_GITHUB_API_TOKEN={{ (bitwarden "item" "HOMEBREW_GITHUB_API_TOKEN").notes | trim }}
+
+# エイリアスをソース
+[[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
